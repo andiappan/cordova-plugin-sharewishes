@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.iiiinfotech.sharewishes"
+        version="0.7.0">
+
+  <name>Sharewishes</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/sharewishes.js" target="js/sharewishes.js"/>
+
+  <js-module src="www/sharewishes.js" name="sharewishes">
+    <clobbers target="sharewishes" />
+  </js-module>
+
+  <platform name="android">
+	<config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.INTERNET"/>
+		<uses-permission android:name="android.permission.READ_SMS" />
+		<uses-permission android:name="android.permission.SEND_SMS" />
+    </config-file>
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Sharewishes">
+        <param name="android-package" value="com.iiiinfotech.sharewishes.Sharewishes"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/Sharewishes.java" target-dir="src/com/iiiinfotech/sharewishes/"/>
+  </platform>
+
+
+
+</plugin>
